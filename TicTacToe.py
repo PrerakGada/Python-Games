@@ -14,37 +14,37 @@ def move():
     pass
 
 def WinLose():
-    if board[0] == board[1] == board[2]:
+    if board[0] == board[1] == board[2] != " ":
         if board[0] == "X":
             print("X wins")
         else:
             print("O Wins")
 
-    elif board[3] == board[4] == board[5]:
+    elif board[3] == board[4] == board[5] != " ":
         if board[0] == "X":
             print("X wins")
         else:
             print("O Wins")
 
-    elif board[6] == board[7] == board[8]:
+    elif board[6] == board[7] == board[8] != " ":
         if board[0] == "X":
             print("X wins")
         else:
             print("O Wins")
 
-    elif board[0] == board[3] == board[6]:
+    elif board[0] == board[3] == board[6] != " ":
         if board[0] == "X":
             print("X wins")
         else:
             print("O Wins")
 
-    elif board[1] == board[4] == board[7]:
+    elif board[1] == board[4] == board[7] != " ":
         if board[0] == "X":
             print("X wins")
         else:
             print("O Wins")
 
-    elif board[2] == board[5] == board[8]:
+    elif board[2] == board[5] == board[8] != " ":
         if board[0] == "X":
             print("X wins")
         else:
@@ -62,7 +62,10 @@ for MoveCount in range(9):
     if MoveCount % 2 == 0:
         print("It's X's Turn")
         pos = int(input("Enter the location you want to play: "))
-        board[pos-1] = "X"
+        if board[pos] == " ":
+            board[pos-1] = "X"
+        else:
+            print("This place is already filled")
     else:
         print("It's O's Turn")
         pos = int(input("Enter the location you want to play: "))
