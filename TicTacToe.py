@@ -76,6 +76,4 @@ def player():
         print("It's O's Turn")
         turn = "O"
     move()
-
-# 1234567890
 player()
