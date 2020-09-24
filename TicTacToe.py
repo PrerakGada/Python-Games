@@ -10,79 +10,65 @@ def displayboard():
     print(board[6] + "|"+  board[7] + "|" + board[8])
     print("\n")
 
-def WinLose():
+def WinLose(g):
     if board[0] == board[1] == board[2] != " ":
-        Game = False
+        g = False
         if board[0] == "X":
             print("X wins")
         elif board[0] == "O":
             print("O Wins")
-        else:
-            Game = True
 
     elif board[3] == board[4] == board[5] != " ":
-        Game = False
+        g = False
         if board[3] == "X":
             print("X wins")
         elif board[3] == "O":
             print("O Wins")
-        else:
-            Game = True
 
     elif board[6] == board[7] == board[8] != " ":
-        Game = False
+        g = False
         if board[6] == "X":
             print("X wins")
         elif board[6] == "O":
             print("O Wins")
-        else:
-            Game = True
 
     elif board[0] == board[3] == board[6] != " ":
-        Game = False
+        g = False
         if board[0] == "X":
             print("X wins")
         elif board[0] == "O":
             print("O Wins")
-        else:
-            Game = True
 
     elif board[1] == board[4] == board[7] != " ":
-        Game = False
+        g = False
         if board[1] == "X":
             print("X wins")
         elif board[1] == "O":
             print("O Wins")
-        else:
-            Game = True
 
     elif board[2] == board[5] == board[8] != " ":
-        Game = False
+        g = False
         if board[2] == "X":
             print("X wins")
         elif board[2] == "O":
             print("O Wins")
-        else:
-            Game = True
         
     else:
         if " " not in board:
             print("The Game is Draw!!")
-            Game = False
+            g = False
+    return g
 
 
 def move():
-    displayboard()
-
     pos = int(input("Enter the location you want to play: "))
-    if board[pos] == " ":
+    if board[pos-1] == " ":
         board[pos-1] = turn
-        WinLose()
     else:
         print("This place is already filled") 
         move()
 
-        
+
 def player(t):
     if MoveCount % 2 == 0:
         print("It's X's Turn")
@@ -96,9 +82,11 @@ def player(t):
 Game = True
 MoveCount = 0
 turn = "X"
-
-while Game:
+displayboard()
+while Game == True:
     turn = player(turn)
     move()
     MoveCount += 1
-    WinLose()
+    displayboard()
+    Game = WinLose(Game)
+    
