@@ -1,5 +1,8 @@
 import random
 
+def Game():
+    pass
+
 words = [''] # Type your word list here
 word = random.choice(words)
 hangman = ''
@@ -40,3 +43,4 @@ if (check == 1):
     print('You won!!')
 else:
     print('Chances Over!!')
+
