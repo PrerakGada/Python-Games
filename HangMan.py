@@ -1,7 +1,6 @@
 import random
 
 def Game():
-    
     pass
 
 words = [''] # Type your word list here
