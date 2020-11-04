@@ -1,10 +1,10 @@
 def displayboard():
     print("\n")
-    print(board[0] + "|" + board[1] + "|" + board[2])
-    print("-+-+-")
-    print(board[3] + "|" + board[4] + "|" + board[5])
-    print("-+-+-")
-    print(board[6] + "|"+  board[7] + "|" + board[8])
+    print(" " + board[0] + " | " + board[1] + " | " + board[2])
+    print("---+---+---")
+    print(" " + board[3] + " | " + board[4] + " | " + board[5])
+    print("---+---+---")
+    print(" " + board[6] + " | " + board[7] + " | " + board[8])
     print("\n")
 
 def WinLose(g):
@@ -73,11 +73,19 @@ def WinLose(g):
 
 
 def move():
-    pos = int(input("Enter the location you want to play: "))
-    if board[pos-1] == " ":
-        board[pos-1] = turn
-    else:
-        print("This place is already filled") 
+    pos = input("Enter the location you want to play: ")
+    try:
+        pos = int(pos)
+        if 0 > pos and pos > 9:
+            print("Invalid Position...\nTry Again: ")
+            move()
+        if board[pos-1] == " ":
+            board[pos-1] = turn
+        else:
+            print("This place is already filled") 
+            move()
+    except:
+        print("Invalid Position...\nTry Again: ")
         move()
 
 
@@ -91,7 +99,7 @@ def player(t):
     return t
 
 # Control Code
-print("\n\n1|2|3\n-+-+-\n4|5|6\n-+-+-\n7|8|9\n")
+print("\n\n 1 | 2 | 3\n---+---+---\n 4 | 5 | 6\n---+---+---\n 7 | 8 | 9\n")
 board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
 Game = True
 MoveCount = 0
@@ -106,6 +114,10 @@ while Game == True:
     Game = WinLose(Game)
     if Game == False:
         print("Do you want to play again?")
-        choice = int(input("Enter '1' to Play again: "))
+        choice = input("Enter '1' to Play again: ")
+        try:
+            choice = int(choice)
+        except:
+            Game = False
         if choice == 1:
             Game = True
