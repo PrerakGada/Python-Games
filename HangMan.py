@@ -4,7 +4,8 @@ def Game():
     
     pass
 
-words = [''] # Type your word list here
+
+words = ['hello'] # Type your word list here
 word = random.choice(words)
 hangman = ''
 s = ''
@@ -44,4 +45,3 @@ if (check == 1):
     print('You won!!')
 else:
     print('Chances Over!!')
-
