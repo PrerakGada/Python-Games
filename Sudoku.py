@@ -17,7 +17,17 @@ def displayBoard():
     print("+-------+-------+-------+")
     print
 
+def turn():
+    x = int(input('Enter the position of X: '))
+    y = int(input('Enter the position of Y: '))
 
+    if x > 9 < y:
+        return False
+
+    num = input('Enter the Value: ')
+    board[x-1][y-1] = str(num)
+
+    return True
 
 # Driver Code
 
@@ -49,5 +59,10 @@ board = [
     [".", ".", ".", ".", ".", ".", ".", ".", "."]
     ]
 
-
 displayBoard()
+
+game = True
+
+while game:
+    game = turn()
+    displayBoard()
