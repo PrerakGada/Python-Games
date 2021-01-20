@@ -17,11 +17,20 @@ def displayBoard():
     print("+-------+-------+-------+")
     print
 
+def check():
+    for square in board:
+        for x in range(9):
+            for y in range(x+1, 9):
+                if square[x] == square[y]:
+                    return False
+
+    return True
+
 def turn():
     x = int(input('Enter the position of X: '))
     y = int(input('Enter the position of Y: '))
 
-    if x > 9 < y:
+    if 0 > x > 9 or 0 > y > 9:
         return False
 
     num = input('Enter the Value: ')
@@ -29,6 +38,16 @@ def turn():
 
     return True
 
+def setBoard(b):
+    num = 1
+    for x in range(9):
+        for y in range(9):
+            b[x][y] = str(random.randint(1, 9))
+
+    return b
+
+
+    
 # Driver Code
 
 print("+-------+-------+-------+")
@@ -61,8 +80,17 @@ board = [
 
 displayBoard()
 
-game = True
+game = False
 
-while game:
+"""while game:
     game = turn()
-    displayBoard()
+    displayBoard()"""
+
+board = setBoard(board)
+displayBoard()
+game = check()
+
+if game:
+    print("Sudoku Solved!")
+else:
+    print("Wrong Solution!")
