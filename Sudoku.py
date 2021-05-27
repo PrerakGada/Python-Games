@@ -15,7 +15,7 @@ def displayBoard():
     print("| " + board[6][3] + " " + board[6][4] + " " + board[6][5] + " | " + board[7][3] + " " + board[7][4] + " " + board[7][5] + " | " + board[8][3] + " " + board[8][4] + " " + board[8][5] + " |")
     print("| " + board[6][6] + " " + board[6][7] + " " + board[6][8] + " | " + board[7][6] + " " + board[7][7] + " " + board[7][8] + " | " + board[8][6] + " " + board[8][7] + " " + board[8][8] + " |")
     print("+-------+-------+-------+")
-    print
+    print()
 
 def check():
     for square in board:
