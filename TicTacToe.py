@@ -9,6 +9,7 @@ def displayboard():
 
 
 def WinLose(g):
+
     if board[0] == board[1] == board[2] != " ":
         g = False
         if board[0] == "X":
